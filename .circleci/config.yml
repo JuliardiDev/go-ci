@@ -24,7 +24,6 @@ jobs:
       # specify any bash command here prefixed with `run: `      
       - run: go test
     
-    general:
-      branches:
-        only:
-        - ci # list of branches to build
+    branches:
+      only:
+      - ci # list of branches to build
