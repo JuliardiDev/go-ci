@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	_, err := sqlx.Connect("postgres", "user=postgres dbname=postgres password=root sslmode=disable")
+	_, err := sqlx.Connect("postgres", "user=postgres dbname=postgres password=roo sslmode=disable")
 	if err != nil {
 		log.Fatalln(err)
 	}
