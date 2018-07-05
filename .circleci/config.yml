@@ -15,9 +15,7 @@ jobs:
       
       - image: redis
 
-      - image: levlaz/elasticsearch-docker-ci:5.1.1
-        environment:
-          - xpack.security.enabled=false          
+      - image: levlaz/elasticsearch-docker-ci:5.1.1        
       
     working_directory: /go/src/github.com/juliardidev/go-ci
     steps:
