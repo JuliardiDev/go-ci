@@ -15,7 +15,7 @@ jobs:
       
       - image: redis
 
-      - image: levlaz/elasticsearch-docker-ci        
+      - image: circleci/elasticsearch        
       
     working_directory: /go/src/github.com/juliardidev/go-ci
     steps:
