@@ -17,7 +17,7 @@ jobs:
 
       - image: levlaz/elasticsearch-docker-ci:5.1.1
         environment:
-          - xpack.security.enabled=false
+          - xpack.security.enabled=false          
       
     working_directory: /go/src/github.com/juliardidev/go-ci
     steps:
