@@ -15,7 +15,7 @@ jobs:
       
       - image: redis
 
-      - image: levlaz/elasticsearch-docker-ci:5.1.1        
+      - image: levlaz/elasticsearch-docker-ci        
       
     working_directory: /go/src/github.com/juliardidev/go-ci
     steps:
@@ -26,7 +26,7 @@ jobs:
       # specify any bash command here prefixed with `run: `      
       - run: 
           name: Expose elastic port
-          command: docker run -p 9200:9200 -d elasticsearch-docker-ci:5.1.1
+          command: docker run -p 9200:9200 -d elasticsearch
       - run: 
           name: Install dep
           command: curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
