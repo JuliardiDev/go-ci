@@ -15,7 +15,7 @@ jobs:
       
       - image: redis
 
-      - image: levlaz/elasticsearch-docker-ci:5.1.1        
+      - image: circleci/elasticsearch        
       
     working_directory: /go/src/github.com/juliardidev/go-ci
     steps:
@@ -23,7 +23,7 @@ jobs:
       - setup_remote_docker: 
          docker_layer_caching: true 
 
-      # specify any bash command here prefixed with `run: `      
+      # specify any bash command here prefixed with `run: `            
       - run: 
           name: Install dep
           command: curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
