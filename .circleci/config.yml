@@ -13,6 +13,12 @@ jobs:
           POSTGRES_DB: postgres
           POSTGRES_PASSWORD: root
       
+      - image: redis
+
+      - image: docker.elastic.co/elasticsearch/elasticsearch:5.6.2
+        environment:
+          - xpack.security.enabled=false
+      
     working_directory: /go/src/github.com/juliardidev/go-ci
     steps:
       - checkout
