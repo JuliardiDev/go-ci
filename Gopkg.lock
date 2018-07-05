@@ -2,6 +2,15 @@
 
 
 [[projects]]
+  name = "github.com/gomodule/redigo"
+  packages = [
+    "internal",
+    "redis"
+  ]
+  revision = "9c11da706d9b7902c6da69c592f75637793fe121"
+  version = "v2.0.0"
+
+[[projects]]
   branch = "master"
   name = "github.com/jmoiron/sqlx"
   packages = [
@@ -22,6 +31,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "6f8e22f6243fa5c7ade69d05f5908920cd91da8c0c293d4581b007f5cdce80bd"
+  inputs-digest = "e92362719eacaddfdbb66d9a20f5c538afcc3e335f94864082587ac07086ac4c"
   solver-name = "gps-cdcl"
   solver-version = 1
