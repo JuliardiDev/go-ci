@@ -29,16 +29,7 @@ jobs:
           command: curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
       - run: 
           name: Update vendor
-          command: dep ensure -v --vendor-only
-      - run: 
-          name: Clone service repository
-          command: git clone https://github.com/JuliardiDev/go-service.git && mv go-service ../
-      - run: 
-          name: Run go service
-          command: go run ../go-service/main.go &
-      - run: 
-          name: Curl
-          command: curl http://localhost:9090      
+          command: dep ensure -v --vendor-only      
       - run:
           name: Test files 
           command: go test
