@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"log"
-	"net/http"
 
 	redigo "github.com/gomodule/redigo/redis"
 	"github.com/jmoiron/sqlx"
@@ -23,10 +22,6 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	_, err = http.Get("http://localhost:9200")
-	if err != nil {
-		log.Fatalln(err)
-	}
 }
 
 // simple addition math func
