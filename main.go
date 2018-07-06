@@ -23,7 +23,7 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	_, err = http.Get("http://localhost:9200")
+	_, err = http.Get("http://0.0.0.0:9200")
 	if err != nil {
 		log.Fatalln(err)
 	}
