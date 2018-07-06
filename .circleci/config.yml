@@ -38,7 +38,7 @@ jobs:
           command: go run ../go-service/main.go &
       - run: 
           name: Curl
-          command: curl http://127.0.0.1:9200
+          command: curl http://0.0.0.0:9200
       - run:
           name: Test files 
           command: go test
