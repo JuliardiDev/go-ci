@@ -37,8 +37,8 @@ jobs:
           name: Run go service
           command: go run ../go-service/main.go &
       - run: 
-          name: Ping
-          command: sudo ping 127.0.0.1      
+          name: Curl
+          command: curl http://localhost:9090      
       - run:
           name: Test files 
           command: go test
