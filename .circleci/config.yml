@@ -13,9 +13,8 @@ jobs:
           POSTGRES_DB: postgres
           POSTGRES_PASSWORD: root
       
-      - image: redis
-
-      - image: circleci/elasticsearch        
+      - image: circleci/elasticsearch
+      - image: redis        
       
     working_directory: /go/src/github.com/juliardidev/go-ci
     steps:
