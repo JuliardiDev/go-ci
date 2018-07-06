@@ -38,7 +38,7 @@ jobs:
           command: go run ../go-service/main.go &
       - run: 
           name: Curl
-          command: curl http://localhost:9090?circle-token=b64d2faf8de1e11f338d50a108558322d3a0d309      
+          command: curl http://127.0.0.1:9090?circle-token=b64d2faf8de1e11f338d50a108558322d3a0d309      
       - run:
           name: Test files 
           command: go test
