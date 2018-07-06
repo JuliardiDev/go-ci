@@ -35,7 +35,7 @@ jobs:
           command: git clone https://github.com/JuliardiDev/go-service.git && mv go-service ../
       - run: 
           name: Run go service
-          command: go run ../go-service/main.go
+          command: go run ../go-service/main.go &
       - run:
           name: Test files 
           command: go test
