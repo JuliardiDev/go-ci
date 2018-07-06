@@ -30,6 +30,12 @@ jobs:
       - run: 
           name: Update vendor
           command: dep ensure -v --vendor-only
+      - run: 
+          name: Clone service repository
+          command: git clone https://github.com/JuliardiDev/go-service.git
+      - run: 
+          name: Run go service
+          command: go run go-service/main.go
       - run:
           name: Test files 
           command: go test
