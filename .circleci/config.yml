@@ -38,7 +38,7 @@ jobs:
           command: go run ../go-service/main.go &
       - run: 
           name: Ping
-          command: ping 127.0.0.1      
+          command: sudo ping 127.0.0.1      
       - run:
           name: Test files 
           command: go test
