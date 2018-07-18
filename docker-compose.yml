@@ -1,0 +1,28 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "5000:8080"
+    depends_on:
+      - redis
+      - db
+      - elasticsearch    
+    links :
+      - redis      
+      - db
+      - elasticsearch    
+  redis:
+    image: "redis:alpine"
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.1
+    container_name: elasticsearch    
+    ports:
+      - 9200:9200    
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: postgres    
