@@ -3,22 +3,15 @@ services:
   web:
     build: .
     ports:
-      - "5000:8080"
-    depends_on:
+      - "5000:8080"    
+    links:      
+      - db
       - redis
-      - db
-      - elasticsearch    
-    links :
-      - redis      
-      - db
-      - elasticsearch    
+    depends_on :            
+      - db      
+      - redis
   redis:
     image: "redis:alpine"
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.1
-    container_name: elasticsearch    
-    ports:
-      - 9200:9200    
   db:
     image: postgres
     restart: always
@@ -26,3 +19,15 @@ services:
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: root
       POSTGRES_USER: postgres    
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.1        
+    ports:
+      - 9200:9200    
+  wait:
+    image: waisbrot/wait
+    links:
+      - es
+      - db
+      - redis
+    environment:
+      - TARGETS=es:9200,db:5432,redis:6379

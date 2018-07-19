@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 
@@ -10,41 +9,33 @@ import (
 	_ "github.com/lib/pq"
 )
 
-type logging struct {
-}
-
-func (lg logging) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+func main() {
 	var (
 		redisConnection         = "Redis OK"
 		dbConnection            = "DB OK"
 		elasticSearchConnection = "Elasticsearch OK"
 	)
-	log.Println("I hitted")
 	_, err := redigo.Dial("tcp", "redis:6379")
 	if err != nil {
 		redisConnection = "Failed: redis " + err.Error()
+		log.Fatalln(redisConnection)
 	}
 
 	_, err = sqlx.Connect("postgres", "user=postgres dbname=postgres password=root host=db sslmode=disable")
 	if err != nil {
 		dbConnection = "Failed: db " + err.Error()
+		log.Fatalln(dbConnection)
 	}
 
-	_, err = http.Get("http://elasticsearch:9200")
+	_, err = http.Get("http://es:9200")
 	if err != nil {
 		elasticSearchConnection = "Failed: elasticsearch " + err.Error()
+		log.Fatalln(elasticSearchConnection)
 	}
 
-	fmt.Fprintln(w, redisConnection)
-	fmt.Fprintln(w, dbConnection)
-	fmt.Fprintln(w, elasticSearchConnection)
-}
-
-func main() {
-	lg := logging{}
-
-	err := http.ListenAndServe(":8080", lg)
-	fmt.Println(err)
+	log.Println(redisConnection)
+	log.Println(dbConnection)
+	log.Println(elasticSearchConnection)
 
 }
 
