@@ -20,9 +20,7 @@ services:
       POSTGRES_PASSWORD: root
       POSTGRES_USER: postgres    
   es:
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.1        
-    ports:
-      - 9200:9200    
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.3.1            
   wait:
     image: waisbrot/wait
     links:
